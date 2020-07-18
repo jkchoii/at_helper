@@ -1,6 +1,7 @@
 classdef signalProcessingHelper
     % Acoustics Toolbox로 모의된 신호를 다룰 때 도움이 되는 클래스
-    % methods:
+    %
+	% methods:
     %   public:
     %       getCovarianceMatrix(*) - 공분산 행렬 만듬
     %       getAverageNoisySnapshot(*) - SNR 가우시안 잡음을 갖는 신호 L개 평균냄
