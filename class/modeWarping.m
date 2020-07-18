@@ -1,6 +1,6 @@
 classdef modeWarping
-    %MODEWARPING 이 클래스의 요약 설명 위치
-    %   자세한 설명 위치
+    %mode warping method tutorial
+	
     
     properties
         tmin
