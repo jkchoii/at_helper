@@ -2,6 +2,7 @@ classdef modeFilter
     % mode filter 생성 및 mode coefficients 계산
     % 서울대 김경섭박사 졸업 논문 참고
     %
+	%
     % methods
     %   public:
     %       modeFilter(*)
