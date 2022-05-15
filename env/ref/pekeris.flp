@@ -1,13 +1,13 @@
 1273
-'RC'
+'RCOC'
 9999
 1
 0.0
 1
-10.0/ ! recv range
+15.0/ ! recv range
 1
-100.0/ ! src depth
-1001
+25.0/ ! src depth
+3001
 0.0 100.0/ ! recv depth
-1001
+3001
 0.0/

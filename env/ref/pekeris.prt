@@ -1,0 +1,66 @@
+ _________________________________________________
+
+ KRAKENC-pekeris                                                                 
+ Nominal Frequency =   100.0    Hz
+ NMedia    =   1
+
+
+     N2-Linear approximation to SSP
+     Attenuation units: dB/wavelength
+
+
+   z (m)     alphaR (m/s)   betaR  rho (g/cm^3)  alphaI     betaI
+
+     VACUUM
+
+       ( # mesh points =     0  RMS roughness =   0.00     m )
+      0.00      1500.00      0.00     1.00       0.0000    0.0000
+    100.00      1500.00      0.00     1.00       0.0000    0.0000
+        ( Number mesh points auto calc. =          133  )
+
+                              ( RMS roughness =   0.00     m )
+     ACOUSTO-ELASTIC half-space
+    100.00      1600.00      0.00     1.50       0.0000    0.0000
+
+ cLow =   1000.0     m/s      cHigh =   2000.0     m/s
+ RMax =   15.000     km
+
+ __________________________________________________________________________
+
+ Number of Source   depths, Sz =            1
+ Source   depths, Sz (m)
+   25.0000    
+
+
+ __________________________________________________________________________
+
+ Number of Receiver depths, Rz =         3001
+ Receiver depths, Rz (m)
+   0.00000      0.333333E-01  0.666667E-01  0.100000      0.133333    
+  0.166667      0.200000      0.233333      0.266667      0.300000    
+          ... 
+   100.000    
+
+ Warning in ReadSzRz : Receiver below or too near the bottom bdry has been moved up
+
+ Mesh multiplier   CPU seconds
+ Max. number of restarts in root finder, MaxTries =            1
+        1             0.00    s
+ Max. number of restarts in root finder, MaxTries =            1
+        2             0.00    s
+ Max. number of restarts in root finder, MaxTries =            1
+        4             0.00    s
+
+    I    k (1/m)            alpha (1/m)   Phase Speed (m/s) Group Speed (m/s)
+    1  0.4179077218       0.000000000       1503.486291       1497.153106    
+    2  0.4149628502       0.000000000       1514.156100       1488.353084    
+    3  0.4099680381       0.000000000       1532.603697       1473.153446    
+    4  0.4028501241       0.000000000       1559.683101       1451.990591    
+    5  0.3938075046       0.000000000       1595.496590       1441.469758    
+    6  0.3817027670     -0.1692694348E-02   1646.093728       1333.653459    
+    7  0.3658647036     -0.2823603947E-02   1717.352138       1292.278781    
+    8  0.3464746011     -0.3954384487E-02   1813.462022       1228.337152    
+    9  0.3228966269     -0.5216452759E-02   1945.881370       1147.365497    
+ _________________________________________________
+
+ End of environmental file

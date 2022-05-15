@@ -2,21 +2,38 @@ classdef modeWarping
     %mode warping method tutorial
 	
     
-    properties
+    properties(GetAccess = private) 
         tmin
         tmax
         c
         r
         fft_pack
         dt
+        cut_idx
 
+        signal
     end
     
     methods
-        function obj = modeWarping(sig, fft_pack, c, r)
+        function obj = modeWarping(sig, fft_pack, c, r, num_samples)
             if iscolumn(sig)
                 sig = sig.';
             end
+            obj.fft_pack = fft_pack;
+
+            %obj.cut_idx = sig(floor(fft_pack.fs*r/c):end);
+            [~, obj.cut_idx] = min(abs(fft_pack.time - r/c));
+            end_idx = obj.cut_idx + num_samples - 1;
+            if isempty(num_samples)
+                end_idx = length(sig);
+            end
+            obj.fft_pack.time = fft_pack.time(obj.cut_idx:end_idx) - fft_pack.time(obj.cut_idx);
+
+
+
+            sig = sig(obj.cut_idx:end_idx);
+
+            obj.signal = sig;
             
             sig_length = length(sig);
             obj.dt = 1/fft_pack.fs;
@@ -25,18 +42,22 @@ classdef modeWarping
             
             obj.r = r;
             obj.c = c;
-            obj.fft_pack = fft_pack;
+            
             
         end
         
-        function [ sig, params ] = process(obj, signal, flag, varargin)
-            narginchk(3,4);
+        %function [ sig, params ] = process(obj, signal, flag, varargin)
+        function [ sig, params ] = process(obj, flag, varargin)
+            narginchk(2,3);
             
+            signal = obj.signal;
+
             if iscolumn(signal)
                 signal = signal.';
             end
             
             if strcmpi(flag, 'FORWARD')
+                %signal = signal(obj.cut_idx:end);
                 [ sig, params ] = processForward(obj, signal);
 
             elseif strcmpi(flag, 'INVERSE')
@@ -88,6 +109,7 @@ classdef modeWarping
             warp_params = [];
             warp_params.t = t_warp_homo;
             warp_params.warp_fs = fs_warp;
+            warp_params.f_vec = fftfreq(length(warp_params.t), warp_params.t(2) - warp_params.t(1));
             warp_params.origin_fs = obj.fft_pack.fs;
             warp_params.origin_length = length(signal);
             warp_params.warp_length = length(sig_warp);
@@ -107,7 +129,7 @@ classdef modeWarping
             %%
             params.t = t;
         end
-        
+
+
     end
 end
-

@@ -2,3 +2,17 @@
 at/at_bin/
 
 at/Matlab/
+
+*.env
+
+*.bak
+*.fig
+*.png
+*.shd
+*.mod
+*.mat
+*.csv
+*.asv
+
+data/
+env/run_env/
